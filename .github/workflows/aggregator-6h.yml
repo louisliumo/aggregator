@@ -32,5 +32,5 @@ jobs:
           [ -n "$GIST_LINK" ] || { echo "::error::Secret GIST_LINK is empty, format username/gist_id"; exit 1; }
           echo "$GIST_LINK" | grep -Eq '^[^/]+/[^/]+$' || { echo "::error::GIST_LINK must be username/gist_id"; exit 1; }
       - name: Collect, dedupe and alive-check
-        run: python -u subscribe/collect.py --all --overwrite -t clash v2ray singbox
+        run: python -u subscribe/collect.py --all --overwrite --skip -t clash v2ray singbox
       - run: date "+%Y-%m-%d %H:%M:%S %Z"
